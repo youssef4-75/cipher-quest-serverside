@@ -5,7 +5,7 @@ import { registerUserEndPoint } from './endpoints/user.js';
 import { loginUserEndPoint } from './endpoints/login.js';
 import { dashboardGamesEndPoint } from './endpoints/dashboard.js';
 import { gamePlayEntryEndPoint } from './endpoints/entry.js';
-import { getGamesEndPoint } from './endpoints/gamePlay.js';
+import { getGamesEndPoint, setGamesEndPoint } from './endpoints/gamePlay.js';
 import { highlightEndPoint } from './endpoints/highlight.js';
 import { getHintEndPoint } from './endpoints/hint.js';
 import { getLBoardEndPoint, getMyRankEndPoint } from './endpoints/leaderboard.js';
@@ -26,6 +26,7 @@ loginUserEndPoint(app); // POST '/login'
 dashboardGamesEndPoint(app);  // POST '/dashboard'
 gamePlayEntryEndPoint(app); // POST '/entry'
 getGamesEndPoint(app); // POST '/game'
+setGamesEndPoint(app); // PUT '/game'
 highlightEndPoint(app); // POST '/highlight'
 getHintEndPoint(app); // POST '/hint'
 getLBoardEndPoint(app); // GET '/leaderboard'

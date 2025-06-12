@@ -368,3 +368,7 @@ export const highlightPassword = async (attempt, gameId, key) => {
     }
     return result;
 };
+
+export const insertGame = async (game, privilege) => {
+    
+}

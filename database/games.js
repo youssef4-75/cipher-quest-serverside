@@ -1,4 +1,4 @@
-const games = {
+const game = {
     game1: {
         title: "The Cryptographer's Challenge",
         timeLimit: 120,
@@ -329,7 +329,7 @@ Each phase will test your understanding of basic historical timelines.`,
                     { id: 2, text: "GDI", hash: 102},
                     { id: 3, text: "A2S", hash: 65},
                     { id: 4, text: "MSC", hash: 56},
-                    { id: 5, text: "GAMELAB", hash: 928}
+                    { id: 5, text: GAMELAB, hash: 928}
                 ],
                 password: "6556102928",
                 explanation: "These clubs are ordered by their impact and activity level: CAS, A2S, MSC, GDI, GameLab. This ranking reflects the clubs' relative prominence and activity at INPT.",
@@ -597,33 +597,4 @@ Each phase will test your understanding of basic social concepts.`,
         ],
         finalPassword: "Society"
     }
-};
-export const getGamesDB = () => {
-    // return randomly five games
-    const gameIds = Object.keys(games);
-    const randomGames = {};
-    
-    // Shuffle and take first 5 games
-    gameIds.sort(() => Math.random() - 0.5)
-          .slice(0, 5)
-          .forEach(id => {
-              randomGames[id] = games[id];
-          });
-    
-    return randomGames;
-};
-export async function getGame(gameId) {
-    const res = await getGamesDB()[gameId];
-    return res;
-}
-export async function addGame(game){
-    // look for a new gameId to use to insert the game in the games object
-    const gamesDB = getGamesDB();
-    const gameIds = Object.keys(gamesDB);
-    const lastGameId = gameIds[gameIds.length - 1];
-    const lastGameNumber = parseInt(lastGameId.replace('game', ''));
-    const newGameId = `game${lastGameNumber + 1}`;
-    
-    gamesDB[newGameId] = game;
-    return newGameId;
 }
